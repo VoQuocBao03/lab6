@@ -1,0 +1,110 @@
+// BẢNG NHÂN VIÊN
+package lab6;
+
+public class NhanVien {
+
+    protected String ten;
+    protected long luong;
+    protected String loaiNhanVien;
+
+    public NhanVien(){
+
+    }
+
+    public NhanVien(String ten, long luong)
+    {
+        super();
+        this.ten = ten;
+        this.luong = luong;
+    }
+
+    public void tinhLuong(){
+        System.out.println("luong nhan vien....");
+    }
+
+    public void xuatThongTin(){
+        System.out.println("Thong tin nhan vien X :"); 
+    }
+
+    public void loaiNhanVien(String nhanvienparttime) {
+    }
+}
+
+
+// BẢNG NHÂN VIÊN FULLTIME
+package lab6;
+
+public class NhanVienfulltime extends NhanVien{
+    protected int loaiChucVu;
+    protected int ngayLamThem;
+
+    public NhanVienfulltime(int loaiChucVu, int ngayLamThem,String ten, long luong)
+    {
+        super(ten,luong);
+        this.loaiChucVu = loaiChucVu;
+        this.ngayLamThem = ngayLamThem;
+    }
+
+    @Override
+    public void xuatThongTin(){
+        System.out.println("Thng tin nhan vien fulltime: name:quocbao, age:20");
+    }
+
+    public void tinhLuong(){
+        System.out.println("Luong nhan vien fulltime: 10tr/thang");
+    }
+
+    public void loaiNhanVien(){
+        System.out.println("Nhan vien fulltime");
+    }
+}
+
+//BẢNG NHÂN VIÊN PARTTIME
+package lab6;
+
+public class NhanVienPartTime extends NhanVien{
+    protected int gioLamViec;
+
+    public NhanVienPartTime(int gioLamViec, String ten, long luong)
+    {
+        super(ten, luong);
+        this.gioLamViec= gioLamViec;
+    }
+    
+    @Override
+    public void xuatThongTin(){
+        System.out.println("thong tin nhan vien parttime: name:quocbao1, age:18"); 
+    }
+
+    public void tinhLuong(){
+        System.out.println("luong nhan vien parttime: 30k/h ");
+    }
+
+    public void loaiNhanVien(){
+        System.out.println("nhan vien parttime");
+    }
+}
+
+// HÀM MAIN
+package lab6;
+
+public class main {
+    private static final String NhanVienParttime = null;
+
+    public static void main(String[] args)
+    {
+        NhanVien nhanvien = new NhanVien();
+        nhanvien.tinhLuong();
+        nhanvien.xuatThongTin();
+
+        nhanvien = new NhanVienPartTime(0, null, 0);
+        nhanvien.loaiNhanVien(null);
+        nhanvien.tinhLuong();
+        nhanvien.xuatThongTin();
+
+        nhanvien = new NhanVienfulltime(0, 0, null, 0);
+        nhanvien.loaiNhanVien(null);
+        nhanvien.tinhLuong();
+        nhanvien.xuatThongTin();
+    }
+}
